@@ -5715,3 +5715,7 @@ img.hrimg{
     -webkit-box-shadow: none;
     box-shadow: none;
 }
+div.post-img-wrap img.attachment-post-thumbnail{
+    width: 370px;
+    height: 270px;
+}

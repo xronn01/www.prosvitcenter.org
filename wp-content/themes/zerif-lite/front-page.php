@@ -28,50 +28,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 
 
-			<?php if ( have_posts() ) : ?>
-
-
-
-				<?php /* Start the Loop */ ?>
-
-				<?php while ( have_posts() ) : the_post(); ?>
-
-
-
-					<?php
-
-						/* Include the Post-Format-specific template for the content.
-
-						 * If you want to override this in a child theme, then include a file
-
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-
-						 */
-
-						get_template_part( 'content', get_post_format() );
-
-					?>
-
-
-
-				<?php endwhile; ?>
-
-
-
-				<?php zerif_paging_nav(); ?>
-
-
-
-			<?php else : ?>
-
-
-
-				<?php get_template_part( 'content', 'none' ); ?>
-
-
-
-			<?php endif; ?>
-
 
 
 			</main><!-- #main -->
@@ -96,191 +52,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	<?php
    }else {
 
-	if(isset($_POST['submitted'])) :
 
-
-			/* recaptcha */
-
-			$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
-
-			$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
-
-			$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
-
-			if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
-
-		        $captcha;
-
-		        if( isset($_POST['g-recaptcha-response']) ){
-
-		          $captcha=$_POST['g-recaptcha-response'];
-
-		        }
-
-		        if( !$captcha ){
-
-		          $hasError = true;
-
-		        }
-
-		        $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
-
-		        if($response['body'].success==false) {
-
-		        	$hasError = true;
-
-		        }
-
-	        endif;
-
-
-
-			/* name */
-
-
-			if(trim($_POST['myname']) === ''):
-
-
-				$nameError = __('* Please enter your name.','zerif-lite');
-
-
-				$hasError = true;
-
-
-			else:
-
-
-				$name = trim($_POST['myname']);
-
-
-			endif;
-
-
-			/* email */
-
-
-			if(trim($_POST['myemail']) === ''):
-
-
-				$emailError = __('* Please enter your email address.','zerif-lite');
-
-
-				$hasError = true;
-
-
-			elseif (!preg_match("/^[[:alnum:]][a-z0-9_.-]*@[a-z0-9.-]+\.[a-z]{2,4}$/i", trim($_POST['myemail']))) :
-
-
-				$emailError = __('* You entered an invalid email address.','zerif-lite');
-
-
-				$hasError = true;
-
-
-			else:
-
-
-				$email = trim($_POST['myemail']);
-
-
-			endif;
-
-
-			/* subject */
-
-
-			if(trim($_POST['mysubject']) === ''):
-
-
-				$subjectError = __('* Please enter a subject.','zerif-lite');
-
-
-				$hasError = true;
-
-
-			else:
-
-
-				$subject = trim($_POST['mysubject']);
-
-
-			endif;
-
-
-			/* message */
-
-
-			if(trim($_POST['mymessage']) === ''):
-
-
-				$messageError = __('* Please enter a message.','zerif-lite');
-
-
-				$hasError = true;
-
-
-			else:
-
-
-				$message = stripslashes(trim($_POST['mymessage']));
-
-
-			endif;
-
-
-
-
-
-			/* send the email */
-
-
-			if(!isset($hasError)):
-
-
-				$zerif_contactus_email = get_theme_mod('zerif_contactus_email');
-
-				if( empty($zerif_contactus_email) ):
-
-					$emailTo = get_theme_mod('zerif_email');
-
-				else:
-
-					$emailTo = $zerif_contactus_email;
-
-				endif;
-
-
-				if(isset($emailTo) && $emailTo != ""):
-
-					if( empty($subject) ):
-						$subject = 'From '.$name;
-					endif;
-
-					$body = "Name: $name \n\nEmail: $email \n\n Subject: $subject \n\n Message: $message";
-
-
-					$headers = 'From: '.$name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
-
-
-					wp_mail($emailTo, $subject, $body, $headers);
-
-
-					$emailSent = true;
-
-
-				else:
-
-
-					$emailSent = false;
-
-
-				endif;
-
-
-			endif;
-
-
-		endif;
 
 
 
@@ -298,30 +70,66 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 </header> <!-- / END HOME SECTION  -->
 
 
+
 <div id="content" class="site-content">
 
+<!--programu-->
+
+<section class="our-team" id="team"><div class="container">
+        <div class="section-header"><h2 class="dark-text">Програми</h2></div>
+        <div class="row" data-scrollreveal="enter left after 0s over 0.1s" data-sr-init="true" data-sr-complete="true">
+            <div class="firstrow">
+
+            </div class="firstrow">
+            <div>
+
+            </div>
+
+        </div></div></section>
+
+    <!--pro nas-->
+
+    <section class="our-team" id="team"><div class="container">
+            <div class="section-header">
+                <h2 class="dark-text">ПРО НАС</h2>
+                <p>Центр Інноваційної Освіти “Про.Світ”  - це середовище освітян і громадських активістів, які прагнуть всесторонньо розвивати українських вчителів і надавати їм додаткові ресурси для впровадження їхніх ініціатив в школах. Ми відкриті до змін і готові їх впроваджувати в Україні, поширювати свої і закордонні практики і формувати коло однодумців, які хочуть привносити в українську систему освіти вже сьогодні.</p>
+            </div>
+            <div class="row" data-scrollreveal="enter left after 0s over 0.1s" data-sr-init="true" data-sr-complete="true">
+                <h3>Наша команда</h3>
+                <div class="imgabout">
+                        <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/vasuliv.fw_.png">
+                            <img class="alignnone size-full wp-image-396" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/vasuliv.fw_.png" alt="vasuliv.fw" width="400" height="400" />
+                        </a>
+                    <p>Надія Михалевич</p>
+                </div>
+                <div class="imgabout">
+                        <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/muxailevu4.fw_.png">
+                            <img class="alignnone size-full wp-image-395" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/muxailevu4.fw_.png" alt="muxailevu4.fw" width="400" height="400" />
+                        </a>
+                    <p>Дзвінка Завалій</p>
+                </div>
+                <div class="imgabout">
+                    <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/dzvinka.fw_.png">
+                        <img class="alignnone size-full wp-image-394" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/dzvinka.fw_.png" alt="dzvinka.fw" width="400" height="400" />
+                    </a>
+                    <p>Юлія Василів</p>
+                </div>
+                <div class="imgabout">
+                    <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/boroveci.fw_.png">
+                        <img class="alignnone size-full wp-image-393" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/boroveci.fw_.png" alt="boroveci.fw" width="400" height="400" />
+                    </a>
+                    <p>Лілія Боровець</p>
+                </div>
+
+            </div></div></section>
 
 
-<?php
-
-	/* OUR FOCUS SECTION */
-
-	$zerif_ourfocus_show = get_theme_mod('zerif_ourfocus_show');
-
-	if( isset($zerif_ourfocus_show) && $zerif_ourfocus_show != 1 ):
-		include get_template_directory() . "/sections/our_focus.php";
-	endif;
-
-
-	/* RIBBON WITH BOTTOM BUTTON */
-
-
-	include get_template_directory() . "/sections/ribbon_with_bottom_button.php";
 
 
 
 
-?>
+            <!--partneru-->
+
 <section class="our-team" id="team"><div class="container">
     <div class="section-header"><h2 class="dark-text">Партнери</h2></div>
         <div class="row" data-scrollreveal="enter left after 0s over 0.1s" data-sr-init="true" data-sr-complete="true">
@@ -353,16 +161,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
         </div>
 
 </section>
-<?
-
-
-
-	/* RIBBON WITH RIGHT SIDE BUTTON */
-
-
-	include get_template_directory() . "/sections/ribbon_with_right_button.php";
-
-?>
 
 	<!-- LATEST NEWS -->
 <section class="latest-news" id="latestnews">
