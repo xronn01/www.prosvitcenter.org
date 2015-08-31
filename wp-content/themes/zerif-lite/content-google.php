@@ -20,7 +20,10 @@ get_header();?>
 
 </header> <!-- / END HOME SECTION  -->
 
-<?php the_post_thumbnail();?>
+<? $image_urll = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full');?>
+<div class="imegmegapost" style="background-image: url(<? echo $image_urll[0];?>); height: <? echo $image_urll[2];?>px;">
+    <div class="header-content-wrap"><h1 class="entry-title-true"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1></div>
+</div>
 
 <div id="content" class="site-content">
 

@@ -580,7 +580,49 @@ jQuery(document).ready(function(){
 
 
 });
-/*jQuery(document).ready(function(){
+
+jQuery(document).ready(function(){
+    var form = jQuery(".newsform");
+    var k = 0;
+    while(k<3){
+     var but = jQuery(form).find("button");
+     var but1 = jQuery(but).eq(k);
+     var val = jQuery(but1).attr('value');
+     var valM = jQuery(".forqveri").attr('name');
+
+        if(valM == ''){
+            jQuery(but).eq(0).addClass("acttivbut1");
+
+        }
+    if(val==valM){
+   jQuery(but1).addClass("acttivbut1");
+
+    }
+        k++;
+
+    }
+
+    });
+
+
+
+
+    jQuery(document).ready(function (){
+        jQuery(".onvidh").click(function(){
+        var az1 = jQuery(".listpost-content-wrap").find(".list-post-top").find(".entry-content");
+
+        var az0 = jQuery(this).parent();
+            if(jQuery(az1).hasClass("entry-content onheight")){
+                jQuery(az1).removeClass("onheight");
+
+            }
+                jQuery(az0).addClass("onheight");
+
+
+    })
+});
+/*.
+jQuery(document).ready(function(){
     var wid = jQuery( ".carousel-inner" ).width();
     jQuery(".new-post").width(function(){return (wid/5.03 );});
     jQuery(".new-post").height(function(){return (wid/5.03  );});

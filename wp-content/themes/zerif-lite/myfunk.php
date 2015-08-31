@@ -50,4 +50,9 @@ function wp_corenavi() {
     echo $pages . paginate_links($a);
     if ($max > 1) echo '</div>';
 }
+function set_clas(){
+    if($_GET['new']){
+
+    }
+}
 ?>

@@ -3,7 +3,10 @@
 
 <?php
  //Dlya vidobragenya Slayda na golovniy storintsi
-       wowslider(12);
+
+?>
+
+    <?
 if ( get_option( 'show_on_front' ) == 'page' ) {
     ?>
 	<div class="clear"></div>
@@ -14,41 +17,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	<!--	<div id="content" class="site-content"> -->
 
- <div class="container">
 
-
-
-	<div class="content-left-wrap col-md-9">
-
-
-
-		<div id="primary" class="content-area">
-
-			<main id="main" class="site-main" role="main">
-
-
-
-
-
-			</main><!-- #main -->
-
-		</div><!-- #primary -->
-
-
-
-	</div><!-- .content-left-wrap -->
-
-
-
-	<div class="sidebar-wrap col-md-3 content-left-wrap">
-
-		<?php get_sidebar(); ?>
-
-	</div><!-- .sidebar-wrap -->
-
-
-
-	</div><!-- .container -->
 	<?php
    }else {
 
@@ -60,7 +29,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	if( isset($zerif_bigtitle_show) && $zerif_bigtitle_show != 1 ):
 
-		include get_template_directory() . "/sections/big_title.php";
+
 	endif;
 
 
@@ -68,6 +37,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 
 </header> <!-- / END HOME SECTION  -->
+<?  wowslider(12);?>
 
 
 
@@ -77,19 +47,51 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 <section class="our-team" id="team"><div class="container">
         <div class="section-header"><h2 class="dark-text">Програми</h2></div>
+        <!-- кртинки заданы беграундом -->
         <div class="row" data-scrollreveal="enter left after 0s over 0.1s" data-sr-init="true" data-sr-complete="true">
             <div class="firstrow">
+                <div class="programimages" id="navuku">
+                <div class="cildimages"></div></div>
+                <h4>Навчальна програма
+«Про.Навики»</h4>
+            </div>
+            <div class="firstrow">
+                <div class="programimages" id="allworld">
+                <div class="cildimages" ></div></div>
+                <h4>Міжнародна освітня програма
+для вчителів</h4>
+            </div>
+            <div class="firstrow">
+                <div class="programimages" id="fatherdey">
+                <div class="cildimages"></div></div>
+                <h4>Дні батьків та дітей</h4>
+            </div>
+            </div >
+        <div class="row" data-scrollreveal="enter left after 0s over 0.1s" data-sr-init="true" data-sr-complete="true">
 
-            </div class="firstrow">
-            <div>
-
+            <div class="firstrow">
+                <div class="programimages" id="forchiuld">
+                <div class="cildimages"></div></div>
+                <h4>Курси для дітей</h4>
+            </div>
+            <div class="firstrow">
+                <div class="programimages" id="aboutworld">
+                <div class="cildimages"></div></div>
+                <h4>Дискусійні зустрічі спільноти
+освітян «Про.Світ»</h4>
+            </div>
+            <div class="firstrow">
+                <div class="programimages" id="peopleforum">
+                <div class="cildimages"></div></div>
+                <h4>Освітній форум</h4>
+            </div>
             </div>
 
         </div></div></section>
 
     <!--pro nas-->
 
-    <section class="our-team" id="team"><div class="container">
+    <section class="our-team" id="onass"><div class="container">
             <div class="section-header">
                 <h2 class="dark-text">ПРО НАС</h2>
                 <p>Центр Інноваційної Освіти “Про.Світ”  - це середовище освітян і громадських активістів, які прагнуть всесторонньо розвивати українських вчителів і надавати їм додаткові ресурси для впровадження їхніх ініціатив в школах. Ми відкриті до змін і готові їх впроваджувати в Україні, поширювати свої і закордонні практики і формувати коло однодумців, які хочуть привносити в українську систему освіти вже сьогодні.</p>
@@ -97,27 +99,28 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
             <div class="row" data-scrollreveal="enter left after 0s over 0.1s" data-sr-init="true" data-sr-complete="true">
                 <h3>Наша команда</h3>
                 <div class="imgabout">
-                        <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/vasuliv.fw_.png">
-                            <img class="alignnone size-full wp-image-396" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/vasuliv.fw_.png" alt="vasuliv.fw" width="400" height="400" />
-                        </a>
+                        <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/dzvinka.fw_.png">
+                                                <img class="alignnone size-full wp-image-394" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/dzvinka.fw_.png" alt="dzvinka.fw" width="400" height="400" />
+                                            </a>
                     <p>Надія Михалевич</p>
                 </div>
                 <div class="imgabout">
-                        <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/muxailevu4.fw_.png">
-                            <img class="alignnone size-full wp-image-395" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/muxailevu4.fw_.png" alt="muxailevu4.fw" width="400" height="400" />
-                        </a>
+                        <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/boroveci.fw_.png">
+                        <img class="alignnone size-full wp-image-393" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/boroveci.fw_.png" alt="boroveci.fw" width="400" height="400" />
+                    </a>
                     <p>Дзвінка Завалій</p>
                 </div>
                 <div class="imgabout">
-                    <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/dzvinka.fw_.png">
-                        <img class="alignnone size-full wp-image-394" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/dzvinka.fw_.png" alt="dzvinka.fw" width="400" height="400" />
-                    </a>
+                    <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/vasuliv.fw_.png">
+                            <img class="alignnone size-full wp-image-396" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/vasuliv.fw_.png" alt="vasuliv.fw" width="400" height="400" />
+                        </a>
+
                     <p>Юлія Василів</p>
                 </div>
                 <div class="imgabout">
-                    <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/boroveci.fw_.png">
-                        <img class="alignnone size-full wp-image-393" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/boroveci.fw_.png" alt="boroveci.fw" width="400" height="400" />
-                    </a>
+                    <a href="http://www.prosvitcenter.org/wp-content/uploads/2015/08/muxailevu4.fw_.png">
+                            <img class="alignnone size-full wp-image-395" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/muxailevu4.fw_.png" alt="muxailevu4.fw" width="400" height="400" />
+                        </a>
                     <p>Лілія Боровець</p>
                 </div>
 
@@ -153,8 +156,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 [su_column size='1/5']<div class='qwww' id ='qw3'></div><p>Навчальні тури і поїздки</p>[/su_column]
  [su_column size='1/5']<div class='qwww' id ='qw4'></div><p>Розробку курсів</p>[/su_column]
  [su_column size='1/5']<div class='qwww' id ='qw5'></div><p>Організацію днів батьків і дітей</p>[/su_column] [/su_row]")?>
- <a href="" class="buuut">Мій внесок в освіту<img src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/strilka.fw_.png" class="hrimg"></a>
-
+<div class="forbooot"> <a href="" class="buuut">Мій внесок в освіту<img src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/strilka.fw_.png" class="hrimg"></a>
+</div>
 
 
 
@@ -216,23 +219,23 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 [su_column size='1/3']<img class='alignnone size-full wp-image-352' src='http://www.prosvitcenter.org/wp-content/uploads/2015/08/layer.3.fw_.png' alt='layer.3.fw' width='130' height='130' />
 <h3>Юліана Петрова</h3>
 
-посада<br>
-<p style='text-align: justify;'>“15 листопада о 12:00 Центр інноваційної освіти Про.СВІТ та спільнота Nravo Kids запрошує на день сімейного дозвілля. Використайте чудову можливість розвиватись разом з усією сім’єю.”</p>
+<h6>посада</h6><br>
+<p style='text-align: justify;'>“ 15 листопада о 12:00 Центр інноваційної освіти Про.СВІТ та спільнота Nravo Kids запрошує на день сімейного дозвілля. Використайте чудову можливість розвиватись разом з усією сім’єю. ”</p>
     [/su_column]
 
 [su_column size='1/3']<img class='alignnone size-full wp-image-351' src='http://www.prosvitcenter.org/wp-content/uploads/2015/08/layer.2.fw_.png' alt='layer.2.fw' width='130' height='130' />
 
 <h3>Олександр Кисіль</h3>
 
-посада<br>
-<p style='text-align: justify;'>“Дорогі батьки, ми оголошуємо додатковий набір дітей для навчання у “Про.Світ”. Кількість місць обмежена - лише 6, тому поспішіть зареєструвати свою дитину на курси.”</p>
+<h6>посада</h6><br>
+<p style='text-align: justify;'>“ Дорогі батьки, ми оголошуємо додатковий набір дітей для навчання у “Про.Світ”. Кількість місць обмежена - лише 6, тому поспішіть зареєструвати свою дитину на курси. ”</p>
     [/su_column]
 
 [su_column size='1/3']<img class='alignnone size-full wp-image-353' src='http://www.prosvitcenter.org/wp-content/uploads/2015/08/layer.fw_.png' alt='layer.fw' width='130' height='130' />
 <h3>Оля Коновалець</h3>
 
-посада<br>
-<p style='text-align: justify;'>“15 листопада о 12:00 Центр інноваційної освіти Про.СВІТ та спільнота Nravo Kids запрошує на день сімейного дозвілля. Використайте чудову можливість розвиватись разом з усією сім’єю.”[/su_column]</p>
+<h6>посада</h6><br>
+<p style='text-align: justify;'>“ 15 листопада о 12:00 Центр інноваційної освіти Про.СВІТ та спільнота Nravo Kids запрошує на день сімейного дозвілля. Використайте чудову можливість розвиватись разом з усією сім’єю. ”[/su_column]</p>
     ")?>
             <div
             </div>

@@ -20,20 +20,27 @@ get_header(); ?>
 <div id="content" class="site-content">
 
 <div class="container">
-<div class="buttons"><form method="get" name="fnews" action="">
-<button type="submit" name="666" value="9" ></button>
-<button type="submit" name="666" value="6" ></button></form>
+<div class="buttons">
+<form class="newsform" method="get" name="fnews" action="">
+<button type="submit" name="new" value="9,13" >Усі</button>
+<button type="submit" name="new" value="9" >Статті</button>
+<button type="submit" name="new" value="13" >Новини</button>
+</form>
 </div>
+<div style="clear: both; width: 100%" ></div>
 <?php the_widget('WP_Widget_Our_focus', '');
 
 $page = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-query_posts('cat='.$_GET['666'].'&paged='.$page.'&posts_per_page=4');?>
-
-<?php echo $_GET['666'];
+query_posts('cat='.$_GET['new'].'&paged='.$page.'&posts_per_page=4');?>
+<div class = "forqveri" name="<?echo $_GET['new'];?>"></div>
+<h2 style="float: left; padding: 0">
+<?php if($_GET['new'] ||$_GET['new']=='9,13'){
+echo get_cat_name($_GET['new']);
+}else{echo 'Усі';}
 while( have_posts() ) : the_post();
     ?>
-
+</h2>
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
         <?php if ( ! is_search() ) : ?>
@@ -42,7 +49,7 @@ while( have_posts() ) : the_post();
 
         <div class="post-img-wrap">
 
-            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+
 
                 <?php the_post_thumbnail("post-thumbnail"); ?>
 
@@ -68,7 +75,7 @@ while( have_posts() ) : the_post();
 
                         <header class="entry-header">
 
-
+                            <h3 class="new-post-title"><?php the_title(); ?></h3>
 
 
 
@@ -99,87 +106,34 @@ while( have_posts() ) : the_post();
                             <div class="entry-content">
 
                                 <?php
+                                if(in_category(9)){
+                                the_excerpt();
+                                    $posturl = get_permalink();
+                                    ?>
+                                    <div class="forbooot">
+                                <a class="buuut" href="<? echo $posturl;?>">Дізнтись більше
+                                    <img class="hrimg" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/strilka.fw_.png" alt="" />
+                                </a></div>
+                                <?}
+                                if(in_category(13)){
+                                    $posturl = null;
+                                    the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'zerif-lite' ) );
 
-                                the_excerpt()
-
-                                //the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'zerif-lite' ) );
+                                    ?><div class="forbooot  onvidh" >
+                                <a class="buuut"    >Дізнтись більше
+                                    <img class="hrimg" src="http://www.prosvitcenter.org/wp-content/uploads/2015/08/strilka.fw_.png" alt="" />
+                                </a></div>
+                               <? }
 
                                 ?>
 
-                                <?php
-
-                                wp_link_pages( array(
-
-                                    'before' => '<div class="page-links">' . __( 'Pages:', 'zerif-lite' ),
-
-                                    'after'  => '</div>',
-
-                                ) );
-
-                                ?>
 
 
-                                <?php endif; ?>
+                               <?php endif; ?>
 
 
 
-                                <footer class="entry-footer">
 
-                                    <?php if ( 'post' == get_post_type() ) : // Hide category and tag text for pages on Search ?>
-
-                                        <?php
-
-                                        /* translators: used between list items, there is a space after the comma */
-
-                                        $categories_list = get_the_category_list( __( ', ', 'zerif-lite' ) );
-
-                                        if ( $categories_list && zerif_categorized_blog() ) :
-
-                                            ?>
-
-                                            <span class="cat-links">
-
-				<?php printf( __( 'Posted in %1$s', 'zerif-lite' ), $categories_list ); ?>
-
-			</span>
-
-                                        <?php endif; // End if categories ?>
-
-
-
-                                        <?php
-
-                                        /* translators: used between list items, there is a space after the comma */
-
-                                        $tags_list = get_the_tag_list( '', __( ', ', 'zerif-lite' ) );
-
-                                        if ( $tags_list ) :
-
-                                            ?>
-
-                                            <span class="tags-links">
-
-				<?php printf( __( 'Tagged %1$s', 'zerif-lite' ), $tags_list ); ?>
-
-			</span>
-
-                                        <?php endif; // End if $tags_list ?>
-
-                                    <?php endif; // End if 'post' == get_post_type() ?>
-
-
-
-                                    <?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
-
-                                        <span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'zerif-lite' ), __( '1 Comment', 'zerif-lite' ), __( '% Comments', 'zerif-lite' ) ); ?></span>
-
-                                    <?php endif; ?>
-
-
-
-                                    <?php edit_post_link( __( 'Edit', 'zerif-lite' ), '<span class="edit-link">', '</span>' ); ?>
-
-                                </footer><!-- .entry-footer -->
 
 
                             </div><!-- .entry-content --><!-- .entry-summary -->
@@ -193,6 +147,7 @@ while( have_posts() ) : the_post();
 
 <?php
 endwhile;?>
+<div style="clear: both; width: 100%" ></div>
 <?php if (function_exists('wp_corenavi')) wp_corenavi(); ?>
 
 </div><!— .container —>

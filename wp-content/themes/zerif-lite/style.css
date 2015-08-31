@@ -536,7 +536,8 @@ input[type="submit"] {
 	border-radius: 4px;
 	margin: 10px;
 	border: none;
-	background-color: #e96656;
+    float: right;
+	background-color: #39b9cb;
 	box-shadow: none;
 	text-shadow: none;
 	font-weight: 400;
@@ -1369,7 +1370,7 @@ object {
 	position: absolute;
 	left: 50%;
 	top: 50%;
-	background-image: url(images/loading.gif);
+	background-image: url(images/loadheadering.gif);
 	background-repeat: no-repeat;
 	background-position: center;
 	margin: -100px 0 0 -100px;
@@ -1378,7 +1379,7 @@ object {
  **   Section: Home                  -----
 -----------------------------------------*/
 .header.header {
-	min-height: 95px;
+	max-height: 95px!important;
 }
 .header.header > .navbar {
 	-webkit-box-shadow: 0 5px 11px 0 rgba(50, 50, 50, 0.08);
@@ -1389,7 +1390,7 @@ object {
     position: inherit;
 	-webkit-box-shadow: 0 5px 11px 0 rgba(50, 50, 50, 0.08);
 	box-shadow: 0 5px 11px 0 rgba(50, 50, 50, 0.08);
-	padding: 285px 0 210px;
+    padding: 163px 0 296px;
 }
 .header_title {
     float: left;
@@ -1430,7 +1431,7 @@ object {
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
-	min-height: 95px;
+	max-height: 95px;
 	margin-bottom: 0;
 }
 #main-nav.fixed {
@@ -1478,12 +1479,14 @@ object {
 	line-height: 35px;
 }
 .navbar-inverse .navbar-nav ul.sub-menu {
-	display: none;
-	position: absolute; top: 100%;
-	background:#fff;
-	width:200px;
-	box-shadow: 3px 3px 2px rgba(50, 50, 50, 0.08);
-	z-index: 9999;
+    display: none;
+    position: absolute;
+    top: 100%;
+    background: rgba(47, 59, 64, 0.84);
+    color: white;
+    width: 300px;
+    box-shadow: 3px 3px 2px rgba(45, 43, 43, 0.49);
+    z-index: 9999;
 }
 .navbar-inverse .navbar-nav ul.sub-menu {
 	margin:0;
@@ -1494,16 +1497,19 @@ object {
 	top:0;
 }
 .navbar-inverse .navbar-nav ul.sub-menu li {
-	float: none;
-	position: relative;
-	list-style:none;
-	padding:10px;
+    float: none;
+    position: relative;
+    list-style: inherit;
+    padding: 5px 0px;
+    left: 40px;
+    font-size: 10px;
 }
 .navbar-inverse .navbar-nav ul.sub-menu li a {
-	color:#404040;
+	color: #fffdfd;
 }
 .navbar-inverse .navbar-nav ul.sub-menu li:hover > a {
-	color:#e96656;
+	color: #39b9cb;
+    font-size: small;
 }
 .navbar-inverse .navbar-nav li:hover > ul.sub-menu {
 	display: block;
@@ -1579,50 +1585,65 @@ object {
 	outline: none;
 }
 ul.nav > li.menu-item-home > a:before {
-	content: "";
-	display: none;
+
 }
 li.current>a:before {
-	position: absolute;
-	margin: auto;
-	z-index: 1;
-	content: "";
-	width: 75%;
-	height: 2px;
-	background: #e96656;
-	bottom: 0;
-	left: 12.5%;
+    position: absolute;
+    margin: auto;
+    z-index: 1;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #39B9CC;
+    bottom: 0;
+    left: 0;
+    display: block;
 }
-ul.nav > li.current_page_item > a:before {
+ul.nav > li.current-menu-parent.current_page_parent > a:before, ul.nav > li.current_page_item > a:before {
+    position: absolute;
+    margin: auto;
+    z-index: 1;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #39B9CC;
+    bottom: 0;
+    left: 0;
+    display: block;
+}
+ul.nav > li.current_page_item.menu-item-home > a:before, ul.nav > li.current-menu-parent.current_page_parent > a:before {
+
+    position: absolute;
+    margin: auto;
+    z-index: 1;
+    content: "";
+    width: 100%;
+    height: 4px;
+    background: #39B9CC;
+    bottom: 0;
+    left: 0;
+    display: block;
+}
+ul.nav > li.current_page_item.current > a:before, ul.nav > li.current-menu-parent.current_page_parent > a:before {
 	position: absolute;
 	margin: auto;
 	z-index: 1;
 	content: "";
-	width: 75%;
-	height: 2px;
-	background: #e96656;
+	width: 100%;
+	height: 4px;
+	background: #39b9cb;
 	bottom: 0;
-	left: 12.5%;
+	left: 0;
 	display: block;
 }
-ul.nav > li.current_page_item.menu-item-home > a:before {
-	content: "";
-	display: none;
-}
-ul.nav > li.current_page_item.current > a:before {
-	position: absolute;
-	margin: auto;
-	z-index: 1;
-	content: "";
-	width: 75%;
-	height: 2px;
-	background: #e96656;
-	bottom: 0;
-	left: 12.5%;
-	display: block;
-}
+.navbar-inverse .navbar-nav >li {
 
-
+}
+.current_page_item,.current-menu-parent.current_page_parent{
+    display: inline;
+    background: #455a64;
+    padding: 25px 24px 25px 24px;
+}
 /*----  SECTION:  HOME > INTRO AND SHORT MSGS   ----*/
 .intro {
 	text-align: center;
@@ -2235,8 +2256,9 @@ width: -webkit-calc(100% / 4);
 -----------------------------------------*/
 .our-team {
 	padding-bottom: 66px;
-	padding-top: 100px;
+	padding-top: 50px;
 	background: #FFFFFF;
+    margin-top: 10px;
 }
 .team-member {
 	border-radius: 4px;
@@ -2895,6 +2917,7 @@ width: -webkit-calc(100% / 4);
 	transition: all 0.5 ease-out;
 }
 article.hentry{
+    position: relative;
 	float: left;
 	width: 100%;
 	margin-bottom: 30px;
@@ -4463,7 +4486,9 @@ body.custom-background {
 .dropdownmenu {
 	display: none;
 }
-
+.our-team .section-header h2{
+    padding-bottom: 40px;
+}
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
@@ -4565,7 +4590,7 @@ body.custom-background {
         padding-bottom: 60px;
     }
     .header-content-wrap{
-		padding: 225px 0 150px;
+		padding: 225px 0 167px;
 	}
 
 }
@@ -4615,6 +4640,10 @@ body.custom-background {
 		width: 100%;
 		float: left;
 	}
+    .navbar-inverse .navbar-nav ul.sub-menu li.current_page_item:la {
+         width: 100%;
+         float: left;
+     }
 	.navbar-inverse .navbar-nav ul.sub-menu li a {
 		width: 100%;
 		float: left;
@@ -4678,7 +4707,11 @@ body.custom-background {
 		left: 0;
 		width: 50px;
 	}
-
+    .sub-menu .nav > li > a {
+        position: static;
+        display: block;
+        padding: 10px 15px;
+    }
     /* HOME */
 	.header {
 		min-height: inherit;
@@ -5439,6 +5472,11 @@ h2.new-post-title{
     filter: alpha(opacity=0);
 
 }
+h3.new-post-title{
+    font-size: 18px;
+    font-weight: 600;
+}
+
 div.new-post-meta{
     position: absolute;
     top: 10%;
@@ -5559,15 +5597,15 @@ section.latest-news div.container{
 
 }
 div.new-post-excerpt p:hover{
-    right: 0px;
+    right: 0;
 }
 
 /*laeru*/
 div.content div.su-column-size-1-3{
-    margin: 1px 15px 40px;
-    padding: 30px 30px 30px;
-    width: 29%;
-    background: #efefef;
+    margin: 1px 15px 70px;
+    padding: 30px 0 70px;
+    width: 30%;
+    background:  #f0f0f0;
     min-height: 100%;
 }
 .container div.content{
@@ -5673,13 +5711,13 @@ section.testimonial .container .col-md-12{
     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/ramo4ka.fw_.png");
     background-size: 100px 100px ;
 }
-.su-clearfix:hover{
+/*.su-clearfix:hover{
     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/graynd.fw_.png");
     height: 100%!important;
     overflow: hidden!important;
     width: 100px!important;
     background-repeat: no-repeat;
-}
+}*/
 .su-row {
     clear: both;
     zoom: 1;
@@ -5687,21 +5725,32 @@ section.testimonial .container .col-md-12{
     display: inline-block;
 }
 .su-column-inner.su-clearfix {
-    width: 100px;
+    width: 83%;
+    margin: 2% 8%;
 
-    margin: 2px 71px;
 }
 div.su-column-inner p{
     margin-top: 20px;
 }
 div.su-column-inner:hover p{
-    margin-top: 20px;
+    margin-top: 0px;
 }
 a.buuut{
     color: white;
     background: #4abfcf;
     padding: 7px 13px;
+    clear: both;
+
 }
+.forbooot{
+    text-align: -webkit-center;
+}
+.list-post-top .forbooot{
+    text-align: -webkit-center;
+    position: absolute;
+    bottom: 35px;
+}
+
 img.hrimg{
     width: 10px;
     height: 20px;
@@ -5715,7 +5764,313 @@ img.hrimg{
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-div.post-img-wrap img.attachment-post-thumbnail{
-    width: 370px;
-    height: 270px;
+/* Golvna Rozdil KONTAKTI*/
+.enddd {
+    height: 268px;
+    width: 100%;
+}
+
+.enddd >h2 {
+    font-size: 30px;
+    font-family: "OpenSans";
+    color: rgb(89, 89, 89);
+    text-transform: uppercase;
+    line-height: 1.633;
+    text-align: center;
+    font-weight: initial;
+    padding-top: 66px;
+    vertical-align: middle;
+    padding-bottom: 10px;
+}
+.enddd > p {
+
+    line-height: 30px;
+    font-size: 17px;
+    font-family: "OpenSans";
+    color: rgb(172, 172, 172);
+}
+
+/* Golvna Rozdil ROZSSILKA*/
+
+.розсилка {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 1920px;
+    height: 5703px;
+    z-index: 27;
+}
+.Ваш_E_mail {
+    font-size: 14px;
+    font-family: "OpenSans";
+    color: rgb(172, 172, 172);
+    line-height: 2;
+    text-align: left;
+    position: absolute;
+    left: 1043.937px;
+    top: 4941.5px;
+    z-index: 26;
+}
+.Ваше_Ім_я {
+    font-size: 14px;
+    font-family: "OpenSans";
+    color: rgb(172, 172, 172);
+    line-height: 2;
+    text-align: left;
+    position: absolute;
+    left: 693.937px;
+    top: 4942px;
+    z-index: 25;
+}
+.Підписатись {
+    font-size: 16px;
+    font-family: "OpenSans";
+    color: rgb(255, 255, 255);
+    line-height: 9.375;
+    text-align: center;
+    position: absolute;
+    left: 1388.938px;
+    top: 5029.509px;
+    z-index: 23;
+}
+.Rectangle_5_copy_19 {
+    background-color: rgb(51, 166, 182);
+    position: absolute;
+    left: 1505px;
+    top: 4936px;
+    width: 40px;
+    height: 40px;
+    z-index: 22;
+}
+.Хочете_дізнатись_більше___Підпишіться_на_розсилку_ {
+    font-size: 16px;
+    font-family: "OpenSans";
+    color: rgb(89, 89, 89);
+    text-transform: uppercase;
+    line-height: 1.5;
+    text-align: left;
+    position: absolute;
+    left: 372.937px;
+    top: 4957.608px;
+    width: 230px;
+    height: 39px;
+    z-index: 21;
+}
+
+.Rectangle_5_copy_21 {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 1025px;
+    top: 4936px;
+    width: 315px;
+    height: 40px;
+    z-index: 19;
+}
+.Rectangle_5_copy_18 {
+    background-color: rgb(57, 186, 204);
+    position: absolute;
+    left: 1370px;
+    top: 4936px;
+    width: 175px;
+    height: 40px;
+    z-index: 18;
+}
+.Rectangle_5_copy_20 {
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    left: 20px;
+    top: 4886px;
+    width: 1920px;
+    height: 140px;
+    z-index: 17;
+}
+.Rectangle_5_copy_20 {
+    background-color: rgb(240, 240, 240);
+    position: absolute;
+    left: 20px;
+    top: 4886px;
+    width: 1920px;
+    height: 140px;
+    z-index: 17;
+}
+._Дорогі_батьки__ми_оголошуємо_додатковий_набір_ {
+    font-family: "OpenSans";
+    color: rgb(172, 172, 172);
+}
+/*Golvna Rozdil VIDGUKI */
+.su-column-inner.su-clearfix > p {
+    font-family: "OpenSans";
+    color: rgb(172, 172, 172);
+    first-letter: inherit;
+    margin: 0;
+
+}
+.su-column-inner.su-clearfix > p:hover {
+    font-family: "OpenSans";
+    color: rgb(172, 172, 172);
+    first-letter: inherit;
+
+}
+.su-column-inner.su-clearfix > h6 {
+    font-weight: 400;
+    color: #75bc4c;
+    font-size: larger;
+}
+.su-column-inner.su-clearfix > h3 {
+
+    margin-top: 14px;
+    font-size: 19px;
+    margin-bottom: 0;
+}
+/*komanda*/
+.imgabout{
+    width: 25%;
+    float: left;
+}
+.imgabout img{
+    height: auto;
+    max-width: 100%;
+    border-radius: 50%;
+    width: 140px;
+}
+#onass.our-team {
+    background: #F0F0F0;
+
+}
+#onass.our-team .section-header p {
+    font-family: "OpenSans";
+    color: rgb(172, 172, 172);
+    first-letter: inherit;
+    margin: 0;
+}
+/*programu*/
+.firstrow{
+    width: 33.3%;
+    float: left;
+    margin-bottom: 2%;
+}
+.programimages {
+    border-radius: 50% ;
+    width: 121px;
+    height: 121px;
+    margin: 0 auto;
+}
+.programimages .cildimages{
+    width: 120px;
+    height: 120px;
+    border-radius: 50% ;
+
+
+}
+
+#navuku.programimages .cildimages{
+    border: 1px #39B9CB solid;
+ background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/hedgen.fw_.png");
+}
+#navuku.programimages:hover .cildimages{
+
+    background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/hedgen2.fw_.png");
+}
+#allworld.programimages .cildimages{
+    border: 1px #F15A19 solid;
+     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/globys.fw_.png");
+ }
+#allworld.programimages:hover .cildimages{
+    background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/globys2.fw_.png");
+}
+#fatherdey.programimages .cildimages{
+    border: 1px  #70B946 solid;
+    background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/liydu.fw_.png");
+}
+#fatherdey.programimages:hover .cildimages{
+     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/liydu2.fw_.png");
+ }
+#forchiuld.programimages .cildimages{
+    border: 1px #75BC4D solid;
+     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/myjuK.fw_.png");
+ }
+#forchiuld.programimages:hover .cildimages{
+     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/myjuK2.fw_.png");
+ }
+#aboutworld.programimages .cildimages{
+    border: 1px #6B9495 solid;
+     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/chat.fw_.png");
+ }
+#aboutworld.programimages:hover .cildimages{
+     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/chat2.fw_.png");
+ }
+#peopleforum.programimages .cildimages{
+    border: 1px #27B3C7 solid;
+     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/liydu_korobka.fw_.png");
+ }
+#peopleforum.programimages:hover .cildimages{
+     background-image: url("http://www.prosvitcenter.org/wp-content/uploads/2015/08/liydu_korobka2.fw_.png");
+ }
+#navuku.programimages:hover{
+    background-color: #39B9CB;
+}
+#allworld.programimages:hover{
+    background-color: #F15A19;
+}
+#fatherdey.programimages:hover{
+    background-color: #70B946;
+}
+#forchiuld.programimages:hover{
+    background-color: #75BC4D;
+}
+#aboutworld.programimages:hover{
+    background-color: #6B9495;
+}
+#peopleforum.programimages:hover{
+    background-color: #27B3C7;
+}
+.firstrow h4{
+    width: 60%;
+    margin: 20px auto 30px;
+
+}
+section#team.our-team{
+    padding-bottom: 5px !important;
+}
+/*pidtr*/
+#ctup-ads-widget-10, #ctup-ads-widget-9, #ctup-ads-widget-8, #ctup-ads-widget-7, #ctup-ads-widget-6{
+    width: 20% !important;
+    float: left;
+}
+.col-lg-3.col-sm-3.focus-box
+#ctup-ads-widget-10 .col-lg-3.col-sm-3.focus-box,
+#ctup-ads-widget-9 .col-lg-3.col-sm-3.focus-box,
+#ctup-ads-widget-8 .col-lg-3.col-sm-3.focus-box,
+#ctup-ads-widget-7 .col-lg-3.col-sm-3.focus-box,
+#ctup-ads-widget-6 .col-lg-3.col-sm-3.focus-box{
+    width: 100% !important;
+}
+/*novunu*/
+div.buttons{
+    margin: 0;
+
+}
+div.buttons button{
+     color: #000000;
+     background: white;
+ }
+
+
+div.buttons .newsform button.acttivbut1 {
+                                  color: white;
+background: #39b9cb;
+}
+.listpost-content-wrap{
+    width: 60%;
+    float: left;
+}
+.listpost-content-wrap .list-post-top .entry-content p{
+    display: none;
+
+}
+.entry-content p:first-child{
+    display: block !important;
+}
+.entry-content.onheight p{
+    display: block !important;
 }
